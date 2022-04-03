@@ -17,7 +17,7 @@ A lightweight set-of-strings implementation based on the Go built-in map type.}
 
 Name:           %{goname}
 Release:        %autorelease
-Summary:        A lightweight set-of-strings implementation based on the Go built-in map type, providing some common set-like operations
+Summary:        A lightweight set-of-strings implementation based on the Go built-in map type.
 
 # Upstream license specification: BSD-3-Clause
 License:        BSD
