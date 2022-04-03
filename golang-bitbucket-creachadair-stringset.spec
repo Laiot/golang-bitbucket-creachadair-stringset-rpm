@@ -10,8 +10,7 @@ Version:                0.0.10
 %gometa
 
 %global common_description %{expand:
-A lightweight set-of-strings implementation based on the Go built-in map type,
-providing some common set-like operations.}
+A lightweight set-of-strings implementation based on the Go built-in map type.}
 
 %global golicenses      LICENSE
 %global godocs          README.md
@@ -24,7 +23,7 @@ Summary:        A lightweight set-of-strings implementation based on the Go buil
 License:        BSD
 URL:            %{gourl}
 Source0:        %{gosource}
-
+BuildArch: noarch
 %description
 %{common_description}
 
@@ -37,24 +36,14 @@ Source0:        %{gosource}
 %go_generate_buildrequires
 
 %build
-for cmd in makeset; do
-  %gobuild -o %{gobuilddir}/bin/$(basename $cmd) %{goipath}/$cmd
-done
 
 %install
 %gopkginstall
-install -m 0755 -vd                     %{buildroot}%{_bindir}
-install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
 %gocheck
 %endif
-
-%files
-%license LICENSE
-%doc README.md
-%{_bindir}/*
 
 %gopkgfiles
 
